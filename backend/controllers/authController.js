@@ -1,0 +1,1 @@
+// Dummy-Funktion für Authentifizierung
