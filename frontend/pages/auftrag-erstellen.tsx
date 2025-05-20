@@ -15,10 +15,25 @@ export default function AuftragErstellen() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Gesendet:", form);
-    alert("Auftrag gespeichert (noch lokal)");
+
+    try {
+      const res = await fetch("/api/auftrag", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (res.ok) {
+        alert("✅ Auftrag erfolgreich gespeichert");
+        setForm({ titel: "", beschreibung: "", ort: "", datum: "", budget: "" });
+      } else {
+        alert("❌ Fehler beim Speichern");
+      }
+    } catch (err) {
+      alert("⚠️ Serverfehler");
+    }
   };
 
   return (
@@ -28,13 +43,13 @@ export default function AuftragErstellen() {
       </Head>
       <Navbar />
       <main style={styles.main}>
-        <h1 style={styles.heading}>Auftrag erstellen</h1>
+        <h1 style={styles.heading}>📝 Auftrag erstellen</h1>
         <form style={styles.form} onSubmit={handleSubmit}>
-          <input name="titel" placeholder="Titel z. B. Umzugshilfe" required onChange={handleChange} style={styles.input} />
-          <textarea name="beschreibung" placeholder="Was genau brauchst du?" required onChange={handleChange} style={styles.textarea} />
-          <input name="ort" placeholder="Ort oder PLZ" required onChange={handleChange} style={styles.input} />
-          <input name="datum" type="date" required onChange={handleChange} style={styles.input} />
-          <input name="budget" placeholder="Budget in €" required onChange={handleChange} style={styles.input} />
+          <input name="titel" placeholder="Titel z. B. Umzugshilfe" required onChange={handleChange} value={form.titel} style={styles.input} />
+          <textarea name="beschreibung" placeholder="Was brauchst du?" required onChange={handleChange} value={form.beschreibung} style={styles.textarea} />
+          <input name="ort" placeholder="Ort oder PLZ" required onChange={handleChange} value={form.ort} style={styles.input} />
+          <input name="datum" type="date" required onChange={handleChange} value={form.datum} style={styles.input} />
+          <input name="budget" placeholder="Budget in €" required onChange={handleChange} value={form.budget} style={styles.input} />
           <button type="submit" style={styles.button}>Auftrag speichern</button>
         </form>
       </main>
