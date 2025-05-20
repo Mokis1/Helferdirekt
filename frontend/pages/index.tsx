@@ -43,3 +43,47 @@ const styles: { [key: string]: React.CSSProperties } = {
   main: {
     padding: "3rem 1rem",
     maxWidth: "800px",
+    margin: "0 auto",
+    fontFamily: "system-ui, sans-serif",
+    textAlign: "center",
+  },
+  headline: {
+    fontSize: "2.5rem",
+    fontWeight: 700,
+    marginBottom: "1rem",
+  },
+  subtext: {
+    fontSize: "1.25rem",
+    marginBottom: "2rem",
+    color: "#555",
+  },
+  buttons: {
+    display: "flex",
+    justifyContent: "center",
+    gap: "1rem",
+    marginBottom: "3rem",
+    flexWrap: "wrap",
+  },
+  button: {
+    padding: "0.75rem 1.5rem",
+    borderRadius: "6px",
+    backgroundColor: "#222",
+    color: "#fff",
+    textDecoration: "none",
+    fontWeight: 600,
+  },
+  features: {
+    display: "flex",
+    gap: "2rem",
+    justifyContent: "space-between",
+    flexWrap: "wrap",
+    marginTop: "2rem",
+  },
+  feature: {
+    flex: "1 1 30%",
+    minWidth: "200px",
+    padding: "1rem",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "8px",
+  },
+};
