@@ -1,13 +1,18 @@
 import React from "react";
 import Head from "next/head";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
   return (
     <>
       <Head>
         <title>Helferdirekt – Hilfe & Werkzeug in deiner Nähe</title>
-        <meta name="description" content="Finde Helfer oder verleihe Werkzeuge in deiner Nachbarschaft." />
+        <meta
+          name="description"
+          content="Finde Helfer oder verleihe Werkzeuge in deiner Nachbarschaft."
+        />
       </Head>
+      <Navbar />
       <main style={styles.main}>
         <h1 style={styles.headline}>
           Finde Hilfe in deiner Nähe <br /> oder verleihe dein Werkzeug
@@ -16,8 +21,12 @@ export default function Home() {
           Helferdirekt bringt Menschen zusammen, die Hilfe brauchen – mit denen, die helfen wollen.
         </p>
         <div style={styles.buttons}>
-          <a href="/helfer" style={styles.button}>Hilfe anbieten</a>
-          <a href="/werkzeuge" style={styles.button}>Werkzeug ausleihen</a>
+          <a href="/helfer" style={styles.button}>
+            Hilfe anbieten
+          </a>
+          <a href="/werkzeuge" style={styles.button}>
+            Werkzeug ausleihen
+          </a>
         </div>
 
         <section style={styles.features}>
