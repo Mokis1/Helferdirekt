@@ -7,7 +7,7 @@
     "start": "next start",
     "lint": "next lint",
     "generate": "ts-node backend/scripts/generate.ts",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate --schema=../backend/prisma/schema.prisma"
   },
   "dependencies": {
     "next": "latest",
