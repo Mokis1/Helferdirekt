@@ -1,1 +1,18 @@
-// Prisma-Schema (PostgreSQL)
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Auftrag {
+  id           String   @id @default(uuid())
+  titel        String
+  beschreibung String
+  ort          String
+  datum        String
+  budget       String
+  erstelltAm   DateTime @default(now())
+}
